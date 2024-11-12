@@ -35,18 +35,17 @@ for i in range (ulang) :
     #kalkulasi
     total_harga = harga * banyak_potong
 
-    # Append the order details to list
+    #List order
     pesanan = (i+1, jenis, harga, banyak_potong, total_harga)
     list_pesanan.append(pesanan)
 
     print(garis2)
 
-# Output
+# Perhitungan total, pajak, dan diskon
 print(nama)
 print(garis2)
 print("No.  Jenis Potong  Harga Satuan  Banyak Beli  Jumlah Harga")
 print(garis)
-
 total_semua = 0
 for pesanan in list_pesanan:
     no = pesanan[0]
@@ -61,24 +60,28 @@ ppn = 10
 diskon = 5
 pajak = ppn * total_semua // 100
 total_diskon = total_semua + pajak
-if banyak_jenis > 3 :
-    hargapromo = diskon * total_diskon //100 + total_diskon
+
+if banyak_jenis >= 3 :
+    hargapromo = diskon * total_diskon //100 
     total_promo = total_diskon - hargapromo
-    print(f"Diskon Potongan : Rp. {hargapromo}")
 else :
     hargapromo = 0
     total_promo = total_diskon - hargapromo
-# Display total of all orders
+
+# Output
 print(garis)
 print(f"Total Harga: Rp. {total_semua}")
 print(f"Pajak {ppn}% : Rp. {pajak}")
+print(f"Diskon Potongan : Rp. {hargapromo}")
 print(f"Total Keseluruhan : Rp. {total_promo}")
 print(garis)
 bayar = int(input("Masukkan uang anda : Rp. "))
 sisa = bayar - total_promo
 if bayar > total_promo :
     print(f"Kembalian : Rp. {sisa}")
+    print(garis2)
     print("--------terimakasih sudah belanja--------".upper())
 else :
+    print(garis2)
     print("-------Maaf uang anda tidak cukup-------". upper())
 print(garis2)

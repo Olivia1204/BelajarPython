@@ -1,10 +1,15 @@
-str1 = 'Hai'
-str2 ='Python'
-str3 = 'aku + kamu'
-str4 = 'kita'
+# Fungsi untuk menggambar pola segitiga
+def gambar_segitiga(N, karakter):
+    for i in range(1, N + 1):
+        # Cetak spasi untuk membentuk segitiga
+        print(" " * (N - i) + karakter * (2 * i - 1))
 
-print('str1 + str2 =', str1 + str2)
-print('str1 *3 =', str1 *3)
-print('str2 *4 =', str2 *4)
-print('str2 + str1 =', str2 + str1)
-print('aku + kamu = ', str4)
+# Meminta masukan dari pengguna
+N = int(input("Masukkan tinggi segitiga (N): "))
+karakter = input("Masukkan karakter yang diinginkan: ")
+
+# Memastikan N dalam batas yang diijinkan
+if 1 <= N <= 100:
+    gambar_segitiga(N, karakter)
+else:
+    print("Nilai N harus antara 1 dan 100.")
